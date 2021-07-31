@@ -1,0 +1,14 @@
+import env from '../../../../config/env'
+import { Controller } from '../../../../../presentation/protocols'
+import { CriptographyAdapter } from '../../../../../infra/adapters'
+import { UserRepository } from '../../../../../infra/db/mysql'
+import { DbUserStore } from '../../../../../data/usecases/db/user'
+import { UserStoreController } from '../../../../../presentation/controllers/user'
+import { makeUserStoreValidation } from './user-store-validation-factory'
+
+export const makeUserStoreController = (): Controller => {
+  const criptographyAdapter = new CriptographyAdapter(env.salt)
+  const userRepository = new UserRepository()
+  const dbUserStore = new DbUserStore(userRepository, userRepository, criptographyAdapter)
+  return new UserStoreController(dbUserStore, makeUserStoreValidation())
+}
