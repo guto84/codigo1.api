@@ -1,7 +1,7 @@
 import { UserModel } from '../../../../domain/models'
 import { UserStore, UserStoreModel } from '../../../../domain/usecases/user'
 import { CriptographyHash } from '../../../protocols/adapters'
-import { UserStoreRepository, UserFindByEmailRepository } from '../../../protocols/db'
+import { UserStoreRepository, UserFindByEmailRepository } from '../../../protocols/db/user'
 
 export class DbUserStore implements UserStore {
   constructor(

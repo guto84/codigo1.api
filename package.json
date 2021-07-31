@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node dist/main/server.js",
     "build": "rimraf dist && tsc",
-    "dev": "ts-node-dev --respawn --ignore-watch node_modules --no-notify src/main/server.ts"
+    "dev": "ts-node-dev --respawn --ignore-watch node_modules --no-notify src/main/server.ts",
+    "up": "cd ../scripts && sudo docker-compose up",
+    "down": "cd ../scripts && sudo docker-compose down"
   },
   "author": "",
   "license": "ISC",

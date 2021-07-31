@@ -1,7 +1,7 @@
 import { db } from '../helpers'
 import { UserModel } from '../../../domain/models'
 import { UserStoreModel } from '../../../domain/usecases/user'
-import { UserStoreRepository, UserFindByEmailRepository } from '../../../data/protocols/db'
+import { UserStoreRepository, UserFindByEmailRepository } from '../../../data/protocols/db/user'
 
 export class UserRepository implements UserStoreRepository, UserFindByEmailRepository {
 

@@ -5,10 +5,12 @@ import { UserRepository } from '../../../../../infra/db/mysql'
 import { DbUserStore } from '../../../../../data/usecases/db/user'
 import { UserStoreController } from '../../../../../presentation/controllers/user'
 import { makeUserStoreValidation } from './user-store-validation-factory'
+import { makeLogControllerDecorator } from '../../../decorators'
 
 export const makeUserStoreController = (): Controller => {
   const criptographyAdapter = new CriptographyAdapter(env.salt)
   const userRepository = new UserRepository()
   const dbUserStore = new DbUserStore(userRepository, userRepository, criptographyAdapter)
-  return new UserStoreController(dbUserStore, makeUserStoreValidation())
+  const controller = new UserStoreController(dbUserStore, makeUserStoreValidation())
+  return makeLogControllerDecorator(controller)
 }
