@@ -1,9 +1,6 @@
-import { UserModel } from '../../../../domain/models'
-import { UserStore, UserStoreModel } from '../../../../domain/usecases/user'
-import { CriptographyHash } from '../../../protocols/adapters'
-import { UserStoreRepository, UserFindByEmailRepository } from '../../../protocols/db/user'
+import { UserStoreRepository, UserFindByEmailRepository, CriptographyHash } from '../../../protocols'
 
-export class DbUserStore implements UserStore {
+export class DbUserStore implements UserStoreRepository {
   constructor(
     private readonly storeRepository: UserStoreRepository,
     private readonly findByEmailRepository: UserFindByEmailRepository,
@@ -14,7 +11,7 @@ export class DbUserStore implements UserStore {
     this.criptography = criptography
   }
 
-  async store(values: UserStoreModel): Promise<UserModel> {
+  async store(values: UserStoreRepository.Params): Promise<UserStoreRepository.Result> {
     const { name, email, password } = values
     const user = await this.findByEmailRepository.findByEmail(email)
     if (!user) {

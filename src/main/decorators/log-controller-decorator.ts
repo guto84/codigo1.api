@@ -1,4 +1,4 @@
-import { LogStore } from '../../domain/usecases/log'
+import { LogStore } from '../../domain/usecases'
 import { Controller, HttpRequest, HttpResponse } from '../../presentation/protocols'
 
 export class LogControllerDecorator implements Controller {

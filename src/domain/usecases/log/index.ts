@@ -1,1 +1,1 @@
-export * from './log-store-model'
+export * from './log-store'

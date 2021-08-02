@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt'
-import { CriptographyHash, CriptographyCompare } from '../../../data/protocols/adapters'
+import { CriptographyHash, CriptographyCompare } from '../../../data/protocols'
 
 export class CriptographyAdapter implements CriptographyHash, CriptographyCompare {
   constructor(private readonly salt: number) {

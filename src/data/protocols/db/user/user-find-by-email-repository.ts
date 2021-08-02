@@ -1,5 +1,13 @@
-import { UserModel } from '../../../domain/models'
-
 export interface UserFindByEmailRepository {
-  findByEmail(email: string): Promise<UserModel>
+  findByEmail: (email: UserFindByEmailRepository.Params) => Promise<UserFindByEmailRepository.Result>
+}
+
+export namespace UserFindByEmailRepository {
+  export type Params = string
+  export type Result = {
+    id: number
+    name: string
+    email: string
+    password: string
+  }
 }

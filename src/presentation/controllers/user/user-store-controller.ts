@@ -1,5 +1,5 @@
 import { Controller, HttpRequest, HttpResponse, Validation } from '../../protocols'
-import { UserStore } from '../../../domain/usecases/user'
+import { UserStore } from '../../../domain/usecases'
 import { badRequest, serverError, ok, forbidden } from '../../helpers/http/http-helper'
 import { EmailInUseError } from '../../errors'
 

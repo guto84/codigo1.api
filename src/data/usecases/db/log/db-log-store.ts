@@ -1,13 +1,11 @@
-import { LogModel } from '../../../../domain/models'
-import { LogStore, LogStoreModel } from '../../../../domain/usecases/log'
-import { LogStoreRepository } from '../../../protocols/db/log'
+import { LogStoreRepository } from '../../../protocols'
 
-export class DbLogStore implements LogStore {
+export class DbLogStore implements LogStoreRepository {
   constructor(private readonly repository: LogStoreRepository) {
     this.repository = repository
   }
 
-  async store(values: LogStoreModel): Promise<LogModel> {
+  async store(values: LogStoreRepository.Params): Promise<LogStoreRepository.Result> {
     return await this.repository.store(values)
   }
 }
