@@ -5,5 +5,9 @@ export interface UserToken {
 }
 
 export interface TokenEncrypt {
-  encrypt(value: UserToken): Promise<string>
+  encrypt(values: UserToken): Promise<string>
+}
+
+export interface TokenDecrypt {
+  decrypt(token: string): Promise<boolean>
 }

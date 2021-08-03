@@ -1,10 +1,10 @@
-import { UserAuth } from '../../../domain/usecases'
+import { UserLogin } from '../../../domain/usecases'
 import { badRequest, unauthorizedError, ok, serverError } from '../../helpers/http'
 import { Controller, HttpRequest, HttpResponse, Validation } from '../../protocols'
 
 export class UserLoginController implements Controller {
-  constructor(private readonly repository: UserAuth, private readonly validation: Validation) {
-    this.repository = repository
+  constructor(private readonly model: UserLogin, private readonly validation: Validation) {
+    this.model = model
     this.validation = validation
   }
 
@@ -15,7 +15,7 @@ export class UserLoginController implements Controller {
       if (error) {
         return badRequest(error)
       }
-      const data = await this.repository.auth(body)
+      const data = await this.model.login(body)
       if (!data) {
         return unauthorizedError()
       }

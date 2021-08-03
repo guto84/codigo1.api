@@ -10,4 +10,8 @@ export class TokenAdapter implements TokenEncrypt {
     const accessToken = await jwt.sign(values, this.secret)
     return accessToken
   }
+
+  async decrypt(token: string): Promise<boolean> {
+    return await jwt.verify(token, this.secret)
+  }
 }

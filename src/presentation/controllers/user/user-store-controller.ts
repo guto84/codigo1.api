@@ -4,8 +4,8 @@ import { badRequest, serverError, ok, forbidden } from '../../helpers/http/http-
 import { EmailInUseError } from '../../errors'
 
 export class UserStoreController implements Controller {
-  constructor(private readonly repository: UserStore, private readonly validation: Validation) {
-    this.repository = repository
+  constructor(private readonly model: UserStore, private readonly validation: Validation) {
+    this.model = model
     this.validation = validation
   }
 
@@ -16,7 +16,7 @@ export class UserStoreController implements Controller {
       if (error) {
         return badRequest(error)
       }
-      const response = await this.repository.store(body)
+      const response = await this.model.store(body)
       if (!response) {
         return forbidden(new EmailInUseError())
       }

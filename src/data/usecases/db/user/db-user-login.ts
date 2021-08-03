@@ -1,12 +1,12 @@
+import { UserLogin } from '../../../../domain/usecases'
 import {
-  UserAuthRepository,
   UserFindByEmailRepository,
   UserUpdateTokenRepository,
   CriptographyCompare,
   TokenEncrypt
 } from '../../../protocols'
 
-export class DbUserLogin implements UserAuthRepository {
+export class DbUserLogin implements UserLogin {
   constructor(
     private readonly findByEmailRepository: UserFindByEmailRepository,
     private readonly updateAccessTokenRepository: UserUpdateTokenRepository,
@@ -19,7 +19,7 @@ export class DbUserLogin implements UserAuthRepository {
     this.token = token
   }
 
-  async auth(values: UserAuthRepository.Params): Promise<UserAuthRepository.Result> {
+  async login(values: UserLogin.Params): Promise<UserLogin.Result> {
     const { email, password } = values
     const user = await this.findByEmailRepository.findByEmail(email)
     if (user) {
@@ -27,7 +27,7 @@ export class DbUserLogin implements UserAuthRepository {
       if (isValid) {
         const { id, name, email } = user
         const token = await this.token.encrypt({ id, name, email })
-        const teste = await this.updateAccessTokenRepository.updateToken({ id, token })
+        await this.updateAccessTokenRepository.updateToken({ id, token })
         return { token }
       }
     }

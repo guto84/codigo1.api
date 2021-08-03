@@ -1,10 +1,23 @@
 import { db } from '../helpers'
-import { UserStoreRepository, UserFindByEmailRepository, UserUpdateTokenRepository } from '../../../data/protocols/db/user'
+import {
+  UserFindByEmailRepository,
+  UserFindByTokenRepository,
+  UserStoreRepository,
+  UserUpdateTokenRepository
+} from '../../../data/protocols'
 
-export class UserRepository implements UserStoreRepository, UserFindByEmailRepository, UserUpdateTokenRepository {
+export class UserRepository implements
+  UserStoreRepository,
+  UserFindByTokenRepository,
+  UserFindByEmailRepository,
+  UserUpdateTokenRepository {
 
   async findByEmail(email: UserFindByEmailRepository.Params): Promise<UserFindByEmailRepository.Result> {
     return (await db('users').where({ email }).select('id', 'name', 'email', 'password')).shift()
+  }
+
+  async findByToken(token: UserFindByTokenRepository.Params): Promise<UserFindByTokenRepository.Result> {
+    return (await db('users').where({ token }).select('id', 'name', 'email')).shift()
   }
 
   async store(values: UserStoreRepository.Params): Promise<UserStoreRepository.Result> {
