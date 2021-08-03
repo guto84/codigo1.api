@@ -1,4 +1,4 @@
-import { serverError, ok, badRequest, forbidden } from '../../helpers/http'
+import { serverError, created, badRequest, forbidden } from '../../helpers/http'
 import { UserForgotPassword } from '../../../domain/usecases'
 import { NotFoundError } from '../../errors'
 import { Controller, HttpRequest, HttpResponse, Validation } from '../../protocols'
@@ -23,7 +23,7 @@ export class UserForgotPasswordController implements Controller {
       if (!data) {
         return forbidden(new NotFoundError())
       }
-      return ok(data)
+      return created(data)
     } catch (error) {
       return serverError(error)
     }

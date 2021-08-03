@@ -1,6 +1,6 @@
 import { Controller, HttpRequest, HttpResponse, Validation } from '../../protocols'
 import { UserStore } from '../../../domain/usecases'
-import { badRequest, serverError, ok, forbidden } from '../../helpers/http/http-helper'
+import { badRequest, serverError, created, forbidden } from '../../helpers/http/http-helper'
 import { EmailInUseError } from '../../errors'
 
 export class UserStoreController implements Controller {
@@ -20,7 +20,7 @@ export class UserStoreController implements Controller {
       if (!response) {
         return forbidden(new EmailInUseError())
       }
-      return ok(response)
+      return created(response)
     } catch (error) {
       return serverError(error)
     }
