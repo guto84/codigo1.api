@@ -1,9 +1,10 @@
 import { serverError, noContent, badRequest, forbidden } from '../../helpers/http'
 import { InvalidParamError } from '../../errors'
 import { Controller, HttpRequest, HttpResponse, Validation } from '../../protocols'
+import { UserRecoverPassword } from '../../../domain/usecases'
 
 export class UserRecoverPasswordController implements Controller {
-  constructor(private readonly model, private readonly validation: Validation) {
+  constructor(private readonly model: UserRecoverPassword, private readonly validation: Validation) {
     this.model = model
     this.validation = validation
   }
