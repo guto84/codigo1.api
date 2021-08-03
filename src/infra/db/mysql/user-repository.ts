@@ -3,6 +3,7 @@ import {
   UserFindByEmailRepository,
   UserFindByTokenRepository,
   UserStoreRepository,
+  UserUpdatePasswordByEmailRepository,
   UserUpdateTokenRepository
 } from '../../../data/protocols'
 
@@ -10,7 +11,8 @@ export class UserRepository implements
   UserStoreRepository,
   UserFindByTokenRepository,
   UserFindByEmailRepository,
-  UserUpdateTokenRepository {
+  UserUpdateTokenRepository,
+  UserUpdatePasswordByEmailRepository {
 
   async findByEmail(email: UserFindByEmailRepository.Params): Promise<UserFindByEmailRepository.Result> {
     return (await db('users').where({ email }).select('id', 'name', 'email', 'password')).shift()
@@ -29,5 +31,9 @@ export class UserRepository implements
   async updateToken(values: UserUpdateTokenRepository.Params): Promise<UserUpdateTokenRepository.Result> {
     const { id, token } = values
     return await db('users').update({ token, updated_at: new Date }).where({ id })
+  }
+
+  async updatePasswordByEmail(email: string, password: string): Promise<number> {
+    return await db('users').update({ password, updated_at: new Date }).where({ email })
   }
 }

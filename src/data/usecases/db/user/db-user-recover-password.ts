@@ -1,10 +1,10 @@
 import { UserRecoverPassword } from '../../../../domain/usecases'
-import { CriptographyHash } from '../../../protocols'
+import { CriptographyHash, PasswordResetFindByUuidRepository, UserUpdatePasswordByEmailRepository } from '../../../protocols'
 
 export class DbUserRecoverPassword implements UserRecoverPassword {
   constructor(
-    private readonly userRepository,
-    private readonly passwordResetRepository,
+    private readonly userRepository: UserUpdatePasswordByEmailRepository,
+    private readonly passwordResetRepository: PasswordResetFindByUuidRepository,
     private readonly criptography: CriptographyHash
   ) {
     this.userRepository = userRepository
