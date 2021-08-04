@@ -7,7 +7,8 @@ import {
   makeUserForgotPasswordController,
   makeUserRecoverPasswordController,
   makeUserListController,
-  makeUserShowController
+  makeUserShowController,
+  makeUserUpdateController
 } from '../factories/controllers/user'
 
 export default (router: Router): void => {
@@ -18,6 +19,6 @@ export default (router: Router): void => {
   router.get('/users/list', auth, adaptRoute(makeUserListController()))
   router.get('/users/:id', auth, adaptRoute(makeUserShowController()))
   router.post('/users/store', auth, adaptRoute(makeUserStoreController()))
-  // router.put('/users/:id', auth, adaptRoute(makeUserStoreController()))
+  router.put('/users/:id', auth, adaptRoute(makeUserUpdateController()))
   // router.delete('/users/:id', auth, adaptRoute(makeUserStoreController()))
 }
