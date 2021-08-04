@@ -10,7 +10,7 @@ import {
   makeUserShowController,
   makeUserUpdateController,
   makeUserDeleteController
-} from '../factories/controllers/user'
+} from '../factories/controllers'
 
 export default (router: Router): void => {
   router.post('/users/login', adaptRoute(makeUserLoginController()))

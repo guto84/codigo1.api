@@ -7,7 +7,7 @@ import {
   makeClientShowController,
   makeClientUpdateController,
   makeClientDeleteController
-} from '../factories/controllers/client'
+} from '../factories/controllers'
 
 export default (router: Router): void => {
   router.get('/clients/list', auth, adaptRoute(makeClientListController()))

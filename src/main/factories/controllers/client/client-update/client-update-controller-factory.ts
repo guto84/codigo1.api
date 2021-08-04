@@ -1,4 +1,3 @@
-import env from '../../../../config/env'
 import { Controller } from '../../../../../presentation/protocols'
 import { ClientRepository } from '../../../../../infra/db/mysql'
 import { DbClientUpdate } from '../../../../../data/usecases/db'
