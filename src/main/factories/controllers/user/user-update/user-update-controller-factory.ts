@@ -1,8 +1,7 @@
-import env from '../../../../config/env'
 import { Controller } from '../../../../../presentation/protocols'
 import { UserRepository } from '../../../../../infra/db/mysql'
-import { DbUserUpdate } from '../../../../../data/usecases/db/user'
-import { UserUpdateController } from '../../../../../presentation/controllers/user'
+import { DbUserUpdate } from '../../../../../data/usecases/db'
+import { UserUpdateController } from '../../../../../presentation/controllers'
 import { makeUserUpdateValidation } from './user-update-validation-factory'
 import { makeLogControllerDecorator } from '../../../decorators'
 

@@ -1,7 +1,7 @@
 import { Controller } from '../../../../../presentation/protocols'
 import { UserRepository } from '../../../../../infra/db/mysql'
-import { DbUserDelete } from '../../../../../data/usecases/db/user'
-import { UserDeleteController } from '../../../../../presentation/controllers/user'
+import { DbUserDelete } from '../../../../../data/usecases/db'
+import { UserDeleteController } from '../../../../../presentation/controllers'
 import { makeLogControllerDecorator } from '../../../decorators'
 
 export const makeUserDeleteController = (): Controller => {

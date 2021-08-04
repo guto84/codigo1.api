@@ -1,0 +1,5 @@
+export * from './client-store/client-store-controller-factory'
+export * from './client-list/client-list-controller-factory'
+export * from './client-show/client-show-controller-factory'
+export * from './client-update/client-update-controller-factory'
+export * from './client-delete/client-delete-controller-factory'

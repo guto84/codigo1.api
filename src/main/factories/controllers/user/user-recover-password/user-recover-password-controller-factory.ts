@@ -1,9 +1,9 @@
 import env from '../../../../config/env'
 import { Controller } from '../../../../../presentation/protocols'
-import { UserRecoverPasswordController } from '../../../../../presentation/controllers/user'
+import { UserRecoverPasswordController } from '../../../../../presentation/controllers'
 import { makeLogControllerDecorator } from '../../../decorators'
 import { makeUserRecoverPasswordValidation } from './user-recover-password-validation-factory'
-import { DbUserRecoverPassword } from '../../../../../data/usecases/db/user'
+import { DbUserRecoverPassword } from '../../../../../data/usecases/db'
 import { UserRepository, PasswordResetRepository } from '../../../../../infra/db/mysql'
 import { CriptographyAdapter } from '../../../../../infra/adapters'
 

@@ -1,7 +1,7 @@
 import { Controller } from '../../../../../presentation/protocols'
 import { UserRepository } from '../../../../../infra/db/mysql'
-import { DbUserFindById } from '../../../../../data/usecases/db/user'
-import { UserShowController } from '../../../../../presentation/controllers/user'
+import { DbUserFindById } from '../../../../../data/usecases/db'
+import { UserShowController } from '../../../../../presentation/controllers'
 import { makeLogControllerDecorator } from '../../../decorators'
 
 export const makeUserShowController = (): Controller => {
