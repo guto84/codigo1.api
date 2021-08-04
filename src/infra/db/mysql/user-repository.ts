@@ -5,7 +5,8 @@ import {
   UserStoreRepository,
   UserUpdatePasswordByEmailRepository,
   UserUpdateTokenRepository,
-  UserFindAllRepository
+  UserFindAllRepository,
+  UserFindByIdRepository
 } from '../../../data/protocols'
 
 export class UserRepository implements
@@ -14,10 +15,15 @@ export class UserRepository implements
   UserFindByEmailRepository,
   UserUpdateTokenRepository,
   UserUpdatePasswordByEmailRepository,
-  UserFindAllRepository {
+  UserFindAllRepository,
+  UserFindByIdRepository {
 
   async findAll(): Promise<UserFindAllRepository.Result[]> {
     return await db('users').select('id', 'name', 'email')
+  }
+
+  async findById(id: UserFindByIdRepository.Params): Promise<UserFindByIdRepository.Result> {
+    return (await db('users').select('id', 'name', 'email').where({ id })).shift()
   }
 
   async findByEmail(email: UserFindByEmailRepository.Params): Promise<UserFindByEmailRepository.Result> {
