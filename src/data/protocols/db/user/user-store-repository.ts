@@ -1,16 +1,10 @@
+import { UserStore } from '../../../../domain/usecases'
+
 export interface UserStoreRepository {
-  store: (values: UserStoreRepository.Params) => Promise<UserStoreRepository.Result>
+  store: (values: UserStore.Params) => Promise<UserStore.Result>
 }
 
 export namespace UserStoreRepository {
-  export type Params = {
-    name: string
-    email: string
-    password: string
-  }
-  export type Result = {
-    id: number
-    name: string
-    email: string
-  }
+  export type Params = UserStore.Params
+  export type Result = UserStore.Result
 }

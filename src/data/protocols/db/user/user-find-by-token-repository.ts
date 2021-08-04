@@ -1,12 +1,10 @@
+import { UserFindByToken } from '../../../../domain/usecases'
+
 export interface UserFindByTokenRepository {
-  findByToken: (token: UserFindByTokenRepository.Params) => Promise<UserFindByTokenRepository.Result>
+  findByToken: (token: UserFindByToken.Params) => Promise<UserFindByToken.Result>
 }
 
 export namespace UserFindByTokenRepository {
-  export type Params = string
-  export type Result = {
-    id: number
-    name: string
-    email: string
-  }
+  export type Params = UserFindByToken.Params
+  export type Result = UserFindByToken.Result
 }

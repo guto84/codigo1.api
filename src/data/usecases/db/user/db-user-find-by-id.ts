@@ -5,11 +5,8 @@ export class DbUserFindById implements UserFindById {
   constructor(private readonly repository: UserFindByIdRepository) {
     this.repository = repository
   }
+  
   async findById(id: UserFindById.Params): Promise<UserFindById.Result> {
-    try {
-      return await this.repository.findById(id)
-    } catch (error) {
-      return null
-    }
+    return await this.repository.findById(id)
   }
 }

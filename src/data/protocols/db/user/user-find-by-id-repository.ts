@@ -1,12 +1,10 @@
+import { UserFindById } from '../../../../domain/usecases'
+
 export interface UserFindByIdRepository {
-  findById: (id: UserFindByIdRepository.Params) => Promise<UserFindByIdRepository.Result>
+  findById: (id: UserFindById.Params) => Promise<UserFindById.Result>
 }
 
 export namespace UserFindByIdRepository {
-  export type Params = number
-  export type Result = {
-    id: number
-    name: string
-    email: string
-  }
+  export type Params = UserFindById.Params
+  export type Result = UserFindById.Result
 }

@@ -3,11 +3,11 @@ export interface LogStore {
 }
 
 export namespace LogStore {
- export type Params = {
-   error: string
- }
- export type Result = {
-   id: number
-   error: string
- }
+  export type Params = {
+    error: string
+  }
+  export type Result = {
+    id: number
+    error: string
+  }
 }

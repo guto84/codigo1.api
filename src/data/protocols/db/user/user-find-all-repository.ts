@@ -1,11 +1,9 @@
+import { UserFindAll } from '../../../../domain/usecases'
+
 export interface UserFindAllRepository {
-  findAll: () => Promise<UserFindAllRepository.Result[]>
+  findAll: () => Promise<UserFindAll.Result[]>
 }
 
 export namespace UserFindAllRepository {
-  export type Result = {
-    id: number
-    name: string
-    email: string
-  }
+  export type Result = UserFindAll.Result
 }
