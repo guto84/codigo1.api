@@ -1,8 +1,9 @@
+import { UserFindAll } from '../../../domain/usecases'
 import { ok, serverError } from '../../helpers/http'
 import { Controller, HttpResponse } from '../../protocols'
 
 export class UserListController implements Controller {
-  constructor(private readonly model) {
+  constructor(private readonly model: UserFindAll) {
     this.model = model
   }
   async handle(): Promise<HttpResponse> {
