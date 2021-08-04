@@ -15,5 +15,8 @@ export default (router: Router): void => {
   router.put('/users/recover-password', adaptRoute(makeUserRecoverPasswordController()))
 
   router.get('/users/list', auth, adaptRoute(makeUserListController()))
+  // router.get('/users/:id', auth, adaptRoute(makeUserListController()))
   router.post('/users/store', auth, adaptRoute(makeUserStoreController()))
+  // router.put('/users/:id', auth, adaptRoute(makeUserStoreController()))
+  // router.delete('/users/:id', auth, adaptRoute(makeUserStoreController()))
 }
