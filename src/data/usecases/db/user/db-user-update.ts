@@ -11,7 +11,6 @@ export class DbUserUpdate implements UserUpdate {
 
   async update(id: number, values: UserUpdate.Params): Promise<number> {
     const user = await this.findByEmailRepository.findByEmail(values.email)
-    console.log(typeof id)
     if(!user || user.id == id) {
       return await this.updateRepository.update(id, values)
     }

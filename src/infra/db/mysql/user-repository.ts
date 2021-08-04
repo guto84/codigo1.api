@@ -7,7 +7,8 @@ import {
   UserUpdateTokenRepository,
   UserFindAllRepository,
   UserFindByIdRepository,
-  UserUpdateRepository
+  UserUpdateRepository,
+  UserDeleteRepository
 } from '../../../data/protocols'
 
 export class UserRepository implements
@@ -18,7 +19,8 @@ export class UserRepository implements
   UserUpdatePasswordByEmailRepository,
   UserFindAllRepository,
   UserFindByIdRepository,
-  UserUpdateRepository {
+  UserUpdateRepository,
+  UserDeleteRepository {
 
   async findAll(): Promise<UserFindAllRepository.Result[]> {
     return await db('users').select('id', 'name', 'email')
@@ -54,5 +56,9 @@ export class UserRepository implements
 
   async updatePasswordByEmail(email: string, password: string): Promise<number> {
     return await db('users').update({ password, updated_at: new Date }).where({ email })
+  }
+
+  async delete(id: number): Promise<number> {
+    return await db('users').del().where({ id })
   }
 }
