@@ -7,5 +7,6 @@ export namespace ProposalUpdate {
     client_id: number
     ref: string
     amount: number
+    confirmation_date?: Date
   }
 }

@@ -9,5 +9,6 @@ export namespace ProposalFindById {
     client: string
     ref: string
     amount: number
+    confirmation_date: Date
   }
 }

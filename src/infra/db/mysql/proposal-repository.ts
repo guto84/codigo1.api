@@ -17,20 +17,20 @@ export class ProposalRepository implements
   async findAll(): Promise<ProposalFindAllRepository.Result[]> {
     return await db('proposals')
       .join('clients', 'clients.id', 'proposals.client_id')
-      .select('proposals.id', 'clients.name as client', 'proposals.ref', 'proposals.amount')
+      .select('proposals.id', 'clients.name as client', 'proposals.ref', 'proposals.amount', 'proposals.confirmation_date')
   }
 
   async findById(id: ProposalFindByIdRepository.Params): Promise<ProposalFindByIdRepository.Result> {
     return (await db('proposals')
       .join('clients', 'clients.id', 'proposals.client_id')
       .where('proposals.id', id)
-      .select('proposals.id', 'clients.name as client', 'proposals.ref', 'proposals.amount')).shift()
+      .select('proposals.id', 'clients.name as client', 'proposals.ref', 'proposals.amount', 'proposals.confirmation_date')).shift()
   }
 
   async store(values: ProposalStoreRepository.Params): Promise<ProposalStoreRepository.Result> {
-    const { client_id, ref, amount } = values
+    const { client_id, ref, amount, confirmation_date } = values
     const response = await db('proposals').insert(values)
-    return { id: response.shift(), client_id, ref, amount }
+    return { id: response.shift(), client_id, ref, amount, confirmation_date }
   }
 
   async update(id: number, values: ProposalUpdateRepository.Params): Promise<number> {

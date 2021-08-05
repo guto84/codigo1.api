@@ -7,11 +7,13 @@ export namespace ProposalStore {
     client_id: number
     ref: string
     amount: number
+    confirmation_date?: Date
   }
   export type Result = {
     id: number
     client_id: number
     ref: string
     amount: number
+    confirmation_date?: Date
   }
 }

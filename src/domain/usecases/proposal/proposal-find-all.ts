@@ -8,5 +8,6 @@ export namespace ProposalFindAll{
     client: string
     ref: string
     amount: number
+    confirmation_date: Date
   }
 }
