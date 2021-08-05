@@ -1,0 +1,5 @@
+export * from './contact-store/contact-store-controller-factory'
+export * from './contact-list/contact-list-controller-factory'
+export * from './contact-show/contact-show-controller-factory'
+export * from './contact-update/contact-update-controller-factory'
+export * from './contact-delete/contact-delete-controller-factory'
