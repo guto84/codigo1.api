@@ -1,5 +1,5 @@
 export interface ProposalLinkFindAllByProposalId {
-  findAllByProposalId: (Proposal_id: number) => Promise<ProposalLinkFindAllByProposalId.Result[]>
+  findAllByProposalId: (proposal_id: number) => Promise<ProposalLinkFindAllByProposalId.Result[]>
 }
 
 export namespace ProposalLinkFindAllByProposalId {

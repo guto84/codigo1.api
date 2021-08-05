@@ -1,0 +1,5 @@
+export * from './payment-store/payment-store-controller-factory'
+export * from './payment-list/payment-list-controller-factory'
+export * from './payment-show/payment-show-controller-factory'
+export * from './payment-update/payment-update-controller-factory'
+export * from './payment-delete/payment-delete-controller-factory'

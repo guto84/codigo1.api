@@ -1,5 +1,5 @@
 export * from './proposal-link-store-repository'
-export * from './proposal-link-find-all-by-client-id-repository'
+export * from './proposal-link-find-all-by-proposal-id-repository'
 export * from './proposal-link-find-by-id-repository'
 export * from './proposal-link-update-repository'
 export * from './proposal-link-delete-repository'
