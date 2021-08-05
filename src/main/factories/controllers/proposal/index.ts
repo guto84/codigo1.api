@@ -1,0 +1,5 @@
+export * from './proposal-store/proposal-store-controller-factory'
+export * from './proposal-list/proposal-list-controller-factory'
+export * from './proposal-show/proposal-show-controller-factory'
+export * from './proposal-update/proposal-update-controller-factory'
+export * from './proposal-delete/proposal-delete-controller-factory'

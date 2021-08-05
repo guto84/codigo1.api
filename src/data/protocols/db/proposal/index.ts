@@ -1,0 +1,5 @@
+export * from './proposal-store-repository'
+export * from './proposal-find-all-repository'
+export * from './proposal-find-by-id-repository'
+export * from './proposal-update-repository'
+export * from './proposal-delete-repository'
