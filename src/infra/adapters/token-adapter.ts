@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { TokenEncrypt, UserFindByEmailRepository } from '../../../data/protocols'
+import { TokenEncrypt, UserFindByEmailRepository } from '../../data/protocols'
 
 export class TokenAdapter implements TokenEncrypt {
   constructor(private readonly secret: string) {
