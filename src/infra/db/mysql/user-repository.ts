@@ -8,7 +8,8 @@ import {
   UserFindAllRepository,
   UserFindByIdRepository,
   UserUpdateRepository,
-  UserDeleteRepository
+  UserDeleteRepository,
+  UserUploadRepository
 } from '../../../data/protocols'
 
 export class UserRepository implements
@@ -27,7 +28,7 @@ export class UserRepository implements
   }
 
   async findById(id: UserFindByIdRepository.Params): Promise<UserFindByIdRepository.Result> {
-    return (await db('users').select('id', 'name', 'email').where({ id })).shift()
+    return (await db('users').select('id', 'name', 'email', 'filename').where({ id })).shift()
   }
 
   async findByEmail(email: UserFindByEmailRepository.Params): Promise<UserFindByEmailRepository.Result> {
@@ -56,6 +57,10 @@ export class UserRepository implements
 
   async updatePasswordByEmail(email: string, password: string): Promise<number> {
     return await db('users').update({ password, updated_at: new Date }).where({ email })
+  }
+
+  async upload(id: number, values: UserUploadRepository.Params): Promise<number> {
+    return await db('users').update(values).where({ id })
   }
 
   async delete(id: number): Promise<number> {

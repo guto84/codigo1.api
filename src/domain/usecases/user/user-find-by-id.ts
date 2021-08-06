@@ -8,5 +8,6 @@ export namespace UserFindById {
     id: number
     name: string
     email: string
+    filename: string
   }
 }

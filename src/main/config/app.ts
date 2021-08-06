@@ -3,7 +3,7 @@ import setupMiddlewares from './middlewares'
 import setupRoutes from './routes'
 
 const app = express()
-setupMiddlewares(app)
+setupMiddlewares(app, express)
 setupRoutes(app)
 
 export default app

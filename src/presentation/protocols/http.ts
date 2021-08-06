@@ -8,4 +8,5 @@ export interface HttpRequest {
   params?: any
   query?: any
   account?: any
+  file?: any
 }
