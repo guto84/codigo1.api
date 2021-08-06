@@ -17,7 +17,7 @@ export default (router: Router): void => {
   router.post('/users/login', adaptRoute(makeUserLoginController()))
   router.post('/users/forgot-password', adaptRoute(makeUserForgotPasswordController()))
   router.put('/users/recover-password', adaptRoute(makeUserRecoverPasswordController()))
-  
+
   router.get('/users/list', auth, adaptRoute(makeUserListController()))
   router.get('/users/:id', auth, adaptRoute(makeUserShowController()))
   router.post('/users/store', auth, adaptRoute(makeUserStoreController()))

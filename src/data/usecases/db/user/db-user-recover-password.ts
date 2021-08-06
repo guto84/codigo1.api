@@ -12,7 +12,7 @@ export class DbUserRecoverPassword implements UserRecoverPassword {
     this.criptography = criptography
   }
 
-  async recoverPassword(values) {
+  async recoverPassword(values: UserRecoverPassword.Params): Promise<number> {
     const { uuid, password } = values
     const passwordReset = await this.passwordResetRepository.findByUuid(uuid)
     if (passwordReset) {

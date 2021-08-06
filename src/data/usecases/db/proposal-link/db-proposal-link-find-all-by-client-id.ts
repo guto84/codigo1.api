@@ -5,7 +5,7 @@ export class DbProposalLinkFindAllByProposalId implements ProposalLinkFindAllByP
   constructor(private readonly repository: ProposalLinkFindAllByProposalIdRepository) {
     this.repository = repository
   }
-  
+
   async findAllByProposalId(proposal_id: number): Promise<ProposalLinkFindAllByProposalId.Result[]> {
     return await this.repository.findAllByProposalId(proposal_id)
   }

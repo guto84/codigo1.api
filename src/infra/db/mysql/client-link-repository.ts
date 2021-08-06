@@ -8,11 +8,11 @@ import {
 } from '../../../data/protocols'
 
 export class ClientLinkRepository implements
-ClientLinkDeleteRepository,
-ClientLinkFindByIdRepository,
-ClientLinkStoreRepository,
-ClientLinkUpdateRepository,
-ClientLinkFindAllByClientIdRepository {
+  ClientLinkDeleteRepository,
+  ClientLinkFindByIdRepository,
+  ClientLinkStoreRepository,
+  ClientLinkUpdateRepository,
+  ClientLinkFindAllByClientIdRepository {
 
   async findAllByClientId(client_id: number): Promise<ClientLinkFindAllByClientIdRepository.Result[]> {
     return await db('client_links').select('id', 'name', 'link').where({ client_id })

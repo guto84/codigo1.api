@@ -3,7 +3,7 @@ import { ClientLinkRepository } from '../../../../../infra/db/mysql'
 import { DbClientLinkFindAllByClientId } from '../../../../../data/usecases/db'
 import { ClientLinkListController } from '../../../../../presentation/controllers'
 import { makeLogControllerDecorator } from '../../../decorators'
-import {makeClientLinkListValidation} from './client-link-list-validation-factory'
+import { makeClientLinkListValidation } from './client-link-list-validation-factory'
 
 export const makeClientLinkListController = (): Controller => {
   const clientLinkRepository = new ClientLinkRepository()

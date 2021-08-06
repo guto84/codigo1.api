@@ -8,11 +8,11 @@ import {
 } from '../../../data/protocols'
 
 export class ProposalLinkRepository implements
-ProposalLinkDeleteRepository,
-ProposalLinkFindByIdRepository,
-ProposalLinkStoreRepository,
-ProposalLinkUpdateRepository,
-ProposalLinkFindAllByProposalIdRepository {
+  ProposalLinkDeleteRepository,
+  ProposalLinkFindByIdRepository,
+  ProposalLinkStoreRepository,
+  ProposalLinkUpdateRepository,
+  ProposalLinkFindAllByProposalIdRepository {
 
   async findAllByProposalId(proposal_id: number): Promise<ProposalLinkFindAllByProposalIdRepository.Result[]> {
     return await db('proposal_links').select('id', 'name', 'link').where({ proposal_id })

@@ -8,11 +8,11 @@ import {
 } from '../../../data/protocols'
 
 export class ContactRepository implements
-ContactDeleteRepository,
-ContactFindByIdRepository,
-ContactStoreRepository,
-ContactUpdateRepository,
-ContactFindAllByClientIdRepository {
+  ContactDeleteRepository,
+  ContactFindByIdRepository,
+  ContactStoreRepository,
+  ContactUpdateRepository,
+  ContactFindAllByClientIdRepository {
 
   async findAllByClientId(client_id: number): Promise<ContactFindAllByClientIdRepository.Result[]> {
     return await db('contacts').select('id', 'name', 'email', 'phone', 'comments').where({ client_id })

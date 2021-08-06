@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 })
 
 const imageUpload = {
-  
+
   dest: path.resolve(__dirname, '..', '..', '..', 'public'),
   storage,
   limits: { fileSize: 2 * 1024 * 1024 },

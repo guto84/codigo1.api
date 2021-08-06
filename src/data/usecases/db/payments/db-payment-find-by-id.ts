@@ -5,7 +5,7 @@ export class DbPaymentFindById implements PaymentFindById {
   constructor(private readonly repository: PaymentFindByIdRepository) {
     this.repository = repository
   }
-  
+
   async findById(id: PaymentFindById.Params): Promise<PaymentFindById.Result> {
     return await this.repository.findById(id)
   }

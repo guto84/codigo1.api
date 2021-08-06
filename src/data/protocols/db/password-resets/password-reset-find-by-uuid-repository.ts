@@ -3,9 +3,7 @@ export interface PasswordResetFindByUuidRepository {
 }
 
 export namespace PasswordResetFindByUuidRepository {
-  export type Params = {
-    uuid: string
-  }
+  export type Params = string
   export type Result = {
     uuid: string
     email: string
