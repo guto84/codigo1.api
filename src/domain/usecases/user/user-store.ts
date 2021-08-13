@@ -1,3 +1,5 @@
+import { UserModel } from '../../models'
+
 export interface UserStore {
   store: (values: UserStore.Params) => Promise<UserStore.Result>
 }
@@ -8,9 +10,5 @@ export namespace UserStore {
     email: string
     password: string
   }
-  export type Result = {
-    id: number
-    name: string
-    email: string
-  }
+  export type Result = UserModel
 }
