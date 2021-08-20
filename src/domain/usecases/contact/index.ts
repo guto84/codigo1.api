@@ -1,5 +1,2 @@
 export * from './contact-store'
-export * from './contact-find-all-by-client-id'
-export * from './contact-find-by-id'
 export * from './contact-update'
-export * from './contact-delete'

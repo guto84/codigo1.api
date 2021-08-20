@@ -1,5 +1,2 @@
 export * from './client-store'
-export * from './client-find-all'
-export * from './client-find-by-id'
 export * from './client-update'
-export * from './client-delete'

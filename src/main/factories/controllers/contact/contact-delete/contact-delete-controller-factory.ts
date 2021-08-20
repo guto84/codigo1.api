@@ -1,12 +1,12 @@
 import { Controller } from '../../../../../presentation/protocols'
 import { ContactRepository } from '../../../../../infra/db/mysql'
-import { DbContactDelete } from '../../../../../data/usecases/db'
-import { ContactDeleteController } from '../../../../../presentation/controllers'
+import { DbDelete } from '../../../../../data/usecases/db'
+import { DeleteController } from '../../../../../presentation/controllers'
 import { makeLogControllerDecorator } from '../../../decorators'
 
 export const makeContactDeleteController = (): Controller => {
   const contactRepository = new ContactRepository()
-  const dbContactDelete = new DbContactDelete(contactRepository)
-  const controller = new ContactDeleteController(dbContactDelete)
+  const dbDelete = new DbDelete(contactRepository)
+  const controller = new DeleteController(dbDelete)
   return makeLogControllerDecorator(controller)
 }

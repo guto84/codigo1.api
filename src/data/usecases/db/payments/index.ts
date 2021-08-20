@@ -1,5 +1,2 @@
 export * from './db-payment-store'
-export * from './db-payment-find-all-by-client-id'
-export * from './db-payment-find-by-id'
 export * from './db-payment-update'
-export * from './db-payment-delete'

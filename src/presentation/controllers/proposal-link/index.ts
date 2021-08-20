@@ -1,5 +1,2 @@
 export * from './proposal-link-store-controller'
-export * from './proposal-link-list-controller'
-export * from './proposal-link-show-controller'
 export * from './proposal-link-update-controller'
-export * from './proposal-link-delete-controller'

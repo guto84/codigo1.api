@@ -1,12 +1,12 @@
 import { Controller } from '../../../../../presentation/protocols'
 import { PaymentRepository } from '../../../../../infra/db/mysql'
-import { DbPaymentFindById } from '../../../../../data/usecases/db'
-import { PaymentShowController } from '../../../../../presentation/controllers'
+import { DbFindById } from '../../../../../data/usecases/db'
+import { ShowController } from '../../../../../presentation/controllers'
 import { makeLogControllerDecorator } from '../../../decorators'
 
 export const makePaymentShowController = (): Controller => {
   const paymentRepository = new PaymentRepository()
-  const dbPaymentFindById = new DbPaymentFindById(paymentRepository)
-  const controller = new PaymentShowController(dbPaymentFindById)
+  const dbFindById = new DbFindById(paymentRepository)
+  const controller = new ShowController(dbFindById)
   return makeLogControllerDecorator(controller)
 }

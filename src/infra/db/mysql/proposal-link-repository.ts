@@ -1,24 +1,24 @@
 import { db } from '../helpers'
 import {
-  ProposalLinkDeleteRepository,
-  ProposalLinkFindByIdRepository,
+  DeleteRepository,
+  FindByIdRepository,
   ProposalLinkStoreRepository,
   ProposalLinkUpdateRepository,
-  ProposalLinkFindAllByProposalIdRepository
+  FindAllByTenantIdRepository
 } from '../../../data/protocols'
 
 export class ProposalLinkRepository implements
-  ProposalLinkDeleteRepository,
-  ProposalLinkFindByIdRepository,
+  DeleteRepository,
+  FindByIdRepository,
   ProposalLinkStoreRepository,
   ProposalLinkUpdateRepository,
-  ProposalLinkFindAllByProposalIdRepository {
+  FindAllByTenantIdRepository {
 
-  async findAllByProposalId(proposal_id: number): Promise<ProposalLinkFindAllByProposalIdRepository.Result[]> {
+  async findAllByTenantId(proposal_id: number): Promise<object[]> {
     return await db('proposal_links').select('id', 'name', 'link').where({ proposal_id })
   }
 
-  async findById(id: ProposalLinkFindByIdRepository.Params): Promise<ProposalLinkFindByIdRepository.Result> {
+  async findById(id: number): Promise<object> {
     return (await db('proposal_links').select('id', 'name', 'link').where({ id })).shift()
   }
 

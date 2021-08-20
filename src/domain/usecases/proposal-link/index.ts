@@ -1,5 +1,2 @@
 export * from './proposal-link-store'
-export * from './proposal-link-find-all-by-proposal-id'
-export * from './proposal-link-find-by-id'
 export * from './proposal-link-update'
-export * from './proposal-link-delete'

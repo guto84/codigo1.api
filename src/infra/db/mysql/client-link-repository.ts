@@ -1,24 +1,24 @@
 import { db } from '../helpers'
 import {
-  ClientLinkDeleteRepository,
-  ClientLinkFindByIdRepository,
+  DeleteRepository,
+  FindByIdRepository,
   ClientLinkStoreRepository,
   ClientLinkUpdateRepository,
-  ClientLinkFindAllByClientIdRepository
+  FindAllByTenantIdRepository
 } from '../../../data/protocols'
 
 export class ClientLinkRepository implements
-  ClientLinkDeleteRepository,
-  ClientLinkFindByIdRepository,
+  DeleteRepository,
+  FindByIdRepository,
   ClientLinkStoreRepository,
   ClientLinkUpdateRepository,
-  ClientLinkFindAllByClientIdRepository {
+  FindAllByTenantIdRepository {
 
-  async findAllByClientId(client_id: number): Promise<ClientLinkFindAllByClientIdRepository.Result[]> {
+  async findAllByTenantId(client_id: number): Promise<object[]> {
     return await db('client_links').select('id', 'name', 'link').where({ client_id })
   }
 
-  async findById(id: ClientLinkFindByIdRepository.Params): Promise<ClientLinkFindByIdRepository.Result> {
+  async findById(id: number): Promise<object> {
     return (await db('client_links').select('id', 'name', 'link').where({ id })).shift()
   }
 

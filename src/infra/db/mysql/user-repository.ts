@@ -5,10 +5,10 @@ import {
   UserStoreRepository,
   UserUpdatePasswordByEmailRepository,
   UserUpdateTokenRepository,
-  UserFindAllRepository,
+  FindAllRepository,
   UserFindByIdRepository,
   UserUpdateRepository,
-  UserDeleteRepository,
+  DeleteRepository,
   UserUploadRepository
 } from '../../../data/protocols'
 
@@ -18,16 +18,17 @@ export class UserRepository implements
   UserFindByEmailRepository,
   UserUpdateTokenRepository,
   UserUpdatePasswordByEmailRepository,
-  UserFindAllRepository,
+  FindAllRepository,
   UserFindByIdRepository,
   UserUpdateRepository,
-  UserDeleteRepository {
+  DeleteRepository,
+  UserUploadRepository {
 
-  async findAll(): Promise<UserFindAllRepository.Result[]> {
+  async findAll(): Promise<object[]> {
     return await db('users').select('id', 'name', 'email')
   }
 
-  async findById(id: UserFindByIdRepository.Params): Promise<UserFindByIdRepository.Result> {
+  async findById(id: number): Promise<UserFindByIdRepository.Result> {
     return (await db('users').select('id', 'name', 'email', 'filename').where({ id })).shift()
   }
 

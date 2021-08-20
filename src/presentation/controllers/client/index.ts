@@ -1,5 +1,2 @@
 export * from './client-store-controller'
-export * from './client-list-controller'
-export * from './client-show-controller'
 export * from './client-update-controller'
-export * from './client-delete-controller'

@@ -1,24 +1,24 @@
 import { db } from '../helpers'
 import {
-  PaymentDeleteRepository,
-  PaymentFindByIdRepository,
+  DeleteRepository,
+  FindByIdRepository,
   PaymentStoreRepository,
   PaymentUpdateRepository,
-  PaymentFindAllByProposalIdRepository
+  FindAllByTenantIdRepository
 } from '../../../data/protocols'
 
 export class PaymentRepository implements
-PaymentDeleteRepository,
-PaymentFindByIdRepository,
+DeleteRepository,
+FindByIdRepository,
 PaymentStoreRepository,
 PaymentUpdateRepository,
-PaymentFindAllByProposalIdRepository {
+FindAllByTenantIdRepository {
 
-  async findAllByProposalId(proposal_id: number): Promise<PaymentFindAllByProposalIdRepository.Result[]> {
+  async findAllByTenantId(proposal_id: number): Promise<object[]> {
     return await db('payments').select('id', 'amount', 'method', 'comments').where({ proposal_id })
   }
 
-  async findById(id: PaymentFindByIdRepository.Params): Promise<PaymentFindByIdRepository.Result> {
+  async findById(id: number): Promise<object> {
     return (await db('payments').select('id', 'amount', 'method', 'comments').where({ id })).shift()
   }
 

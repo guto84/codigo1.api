@@ -1,5 +1,2 @@
 export * from './contact-store-repository'
-export * from './contact-find-all-by-client-id-repository'
-export * from './contact-find-by-id-repository'
 export * from './contact-update-repository'
-export * from './contact-delete-repository'

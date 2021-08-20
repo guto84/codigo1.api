@@ -1,24 +1,24 @@
 import { db } from '../helpers'
 import {
-  ContactDeleteRepository,
-  ContactFindByIdRepository,
+  DeleteRepository,
+  FindByIdRepository,
   ContactStoreRepository,
   ContactUpdateRepository,
-  ContactFindAllByClientIdRepository
+  FindAllByTenantIdRepository
 } from '../../../data/protocols'
 
 export class ContactRepository implements
-  ContactDeleteRepository,
-  ContactFindByIdRepository,
+  DeleteRepository,
+  FindByIdRepository,
   ContactStoreRepository,
   ContactUpdateRepository,
-  ContactFindAllByClientIdRepository {
+  FindAllByTenantIdRepository {
 
-  async findAllByClientId(client_id: number): Promise<ContactFindAllByClientIdRepository.Result[]> {
+  async findAllByTenantId(client_id: number): Promise<object[]> {
     return await db('contacts').select('id', 'name', 'email', 'phone', 'comments').where({ client_id })
   }
 
-  async findById(id: ContactFindByIdRepository.Params): Promise<ContactFindByIdRepository.Result> {
+  async findById(id: number): Promise<object> {
     return (await db('contacts').select('id', 'name', 'email', 'phone', 'comments').where({ id })).shift()
   }
 

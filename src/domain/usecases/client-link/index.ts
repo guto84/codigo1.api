@@ -1,5 +1,2 @@
 export * from './client-link-store'
-export * from './client-link-find-all-by-client-id'
-export * from './client-link-find-by-id'
 export * from './client-link-update'
-export * from './client-link-delete'

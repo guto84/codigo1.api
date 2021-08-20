@@ -1,12 +1,12 @@
 import { Controller } from '../../../../../presentation/protocols'
 import { ProposalLinkRepository } from '../../../../../infra/db/mysql'
-import { DbProposalLinkDelete } from '../../../../../data/usecases/db'
-import { ProposalLinkDeleteController } from '../../../../../presentation/controllers'
+import { DbDelete } from '../../../../../data/usecases/db'
+import { DeleteController } from '../../../../../presentation/controllers'
 import { makeLogControllerDecorator } from '../../../decorators'
 
 export const makeProposalLinkDeleteController = (): Controller => {
   const proposalLinkRepository = new ProposalLinkRepository()
-  const dbProposalLinkDelete = new DbProposalLinkDelete(proposalLinkRepository)
-  const controller = new ProposalLinkDeleteController(dbProposalLinkDelete)
+  const dbDelete = new DbDelete(proposalLinkRepository)
+  const controller = new DeleteController(dbDelete)
   return makeLogControllerDecorator(controller)
 }

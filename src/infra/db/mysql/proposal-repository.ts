@@ -1,26 +1,26 @@
 import { db } from '../helpers'
 import {
-  ProposalDeleteRepository,
-  ProposalFindAllRepository,
-  ProposalFindByIdRepository,
+  DeleteRepository,
+  FindAllRepository,
+  FindByIdRepository,
   ProposalStoreRepository,
   ProposalUpdateRepository
 } from '../../../data/protocols'
 
 export class ProposalRepository implements
-  ProposalFindAllRepository,
-  ProposalFindByIdRepository,
+  FindAllRepository,
+  FindByIdRepository,
   ProposalStoreRepository,
   ProposalUpdateRepository,
-  ProposalDeleteRepository {
+  DeleteRepository {
 
-  async findAll(): Promise<ProposalFindAllRepository.Result[]> {
+  async findAll(): Promise<object[]> {
     return await db('proposals')
       .join('clients', 'clients.id', 'proposals.client_id')
       .select('proposals.id', 'clients.name as client', 'proposals.ref', 'proposals.amount', 'proposals.confirmation_date')
   }
 
-  async findById(id: ProposalFindByIdRepository.Params): Promise<ProposalFindByIdRepository.Result> {
+  async findById(id: number): Promise<object> {
     return (await db('proposals')
       .join('clients', 'clients.id', 'proposals.client_id')
       .where('proposals.id', id)
